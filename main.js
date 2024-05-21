@@ -5,10 +5,19 @@ const fetchData = () => {
     }, 1000);
   });
   return promise;
-  //   setTimeout(function () {
-  //     callback("Done!!");
-  //   }, 1500);
 };
+
+const fetchData2 = (callback) => {
+  setTimeout(() => {
+    callback(10);
+  }, 1000);
+};
+
+fetchData2((data) => {
+  for (i = 1; i <= data; i++) {
+    console.log(i);
+  }
+});
 
 setTimeout(() => {
   console.log("Timer is done!!");
@@ -20,7 +29,8 @@ setTimeout(() => {
     .then((text2) => {
       console.log(text2);
       return fetchData();
-    }).then(text3 => {
-        console.log(text3)
     })
+    .then((text3) => {
+      console.log(text3);
+    });
 }, 2000);
